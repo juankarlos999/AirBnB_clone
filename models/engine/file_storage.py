@@ -57,8 +57,8 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as load_file:
                 from models.base_model import BaseModel
-                pobj = json.load(load_file)
-                for key, value in pobj.items():
+                obj_load = json.load(load_file)
+                for key, value in obj_load.items():
                     #print("\n\nKEY =", key, "\nVALUE =", value, "#########", value["__class__"])
                     obj = eval(value["__class__"] + "(**value)")
                     #print("\n\n*****obj = ", obj, type(obj))
