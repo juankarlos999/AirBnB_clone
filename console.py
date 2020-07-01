@@ -22,7 +22,6 @@ class HBNBCommand(cmd.Cmd):
         """ Quit command to exit the program"""
         return True
 
-
     def do_EOF(self, line):
         """exit interpreter Crtl + D"""
         print()
@@ -35,9 +34,9 @@ class HBNBCommand(cmd.Cmd):
         cmd execute precmd, onecmd and postcmd methods sequentially. onecmd is
         the main one which exetues the given line.
         This method check the line, if line is empty it calls the emptyline
-        method and it returns the last command which is a global variable called
-        as 'lastcmd'. The method emptyline(), override the variable 'lastcmd'
-        asigning double quotes.
+        method and it returns the last command which is a global variable
+        called as 'lastcmd'. The method emptyline(), override the variable
+        'lastcmd' asigning double quotes.
         """
         if self.lastcmd:
             self.lastcmd = ""
