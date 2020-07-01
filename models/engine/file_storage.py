@@ -10,7 +10,6 @@ class FileStorage:
     class FileStorage that serializes instances to a JSON file and
     deserializes JSON file to instances
     """
-    # class variables
     __file_path = 'file.json'
     __objects = {}
 
@@ -43,9 +42,7 @@ class FileStorage:
         """
         new_obj = {}
         for key, value in FileStorage.__objects.items():
-        #print("\n\nKEY =", key, "\nVALUE =", value)
             new_obj[key] = value.to_dict()
-        #print("\n\n\n", new_obj, "\n\n\n")
         with open(self.__file_path, 'w', encoding='utf-8') as file_save:
             json.dump(new_obj, file_save)
 
@@ -59,9 +56,7 @@ class FileStorage:
                 from models.base_model import BaseModel
                 obj_load = json.load(load_file)
                 for key, value in obj_load.items():
-                    #print("\n\nKEY =", key, "\nVALUE =", value, "#########", value["__class__"])
                     obj = eval(value["__class__"] + "(**value)")
-                    #print("\n\n*****obj = ", obj, type(obj))
                     FileStorage.__objects[key] = obj
         except IOError:
             pass

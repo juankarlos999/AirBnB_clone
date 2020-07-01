@@ -52,11 +52,9 @@ class BaseModel:
         of the instance
         """
         var_dict = self.__dict__.copy()
-        #print("$$$$$$$$\n\n",var_dict, "\n\n\n")
         var_dict["__class__"] = self.__class__.__name__
         var_dict["created_at"] = self.created_at.isoformat()
         var_dict["updated_at"] = self.updated_at.isoformat()
-        #print("****\n\n",var_dict, "\n\n\n")
         return var_dict
 
     def __str__(self):
