@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Module that convert the dictionary representation to a JSON string
 """
@@ -53,16 +53,16 @@ class FileStorage:
         """
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as load_file:
-                from models.base_model import BaseModel
-                from models.user import User
-                from models.city import City
                 from models.amenity import Amenity
+                from models.base_model import BaseModel
+                from models.city import City
                 from models.place import Place
                 from models.review import Review
                 from models.state import State
+                from models.user import User
                 obj_load = json.load(load_file)
                 for key, value in obj_load.items():
                     obj = eval(value["__class__"] + "(**value)")
                     FileStorage.__objects[key] = obj
-        except IOError:
+        except:
             pass
