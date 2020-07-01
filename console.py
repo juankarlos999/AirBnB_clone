@@ -176,7 +176,7 @@ class HBNBCommand(cmd.Cmd):
             _id = find_id.split('.')
             if validator_str[1] == _id[1]:
                 setattr(all_objs[find_id], validator_str[2], validator_str[3])
-                storage.save()
+                all_objs[find_id].save()
                 break
 
 if __name__ == '__main__':
