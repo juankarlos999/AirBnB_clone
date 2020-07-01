@@ -168,11 +168,16 @@ class HBNBCommand(cmd.Cmd):
         for obj_id in all_objs:
             id_ = obj_id.split('.')
             if validator_str[1] == id_[1]:
-                del all_objs[obj_id]
-                storage.save()
                 break
         else:
             print("** no instance found **")
+
+        for  find_id in all_objs:
+            _id = find_id.split('.')
+            if validator_str[1] == _id[1]:
+                setattr(all_objs[find_id], validator_str[2], validator_str[3])
+                storage.save()
+                break
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
