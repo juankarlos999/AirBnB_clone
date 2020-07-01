@@ -172,7 +172,7 @@ class HBNBCommand(cmd.Cmd):
         else:
             print("** no instance found **")
 
-        for  find_id in all_objs:
+        for find_id in all_objs:
             _id = find_id.split('.')
             if validator_str[1] == _id[1]:
                 setattr(all_objs[find_id], validator_str[2], validator_str[3])
