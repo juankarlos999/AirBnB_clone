@@ -54,6 +54,12 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, encoding="utf-8") as load_file:
                 from models.base_model import BaseModel
+                from models.user import User
+                from models.city import City
+                from models.amenity import Amenity
+                from models.place import Place
+                from models.review import Review
+                from models.state import State
                 obj_load = json.load(load_file)
                 for key, value in obj_load.items():
                     obj = eval(value["__class__"] + "(**value)")
