@@ -2,7 +2,7 @@
 """Tests Base Model"""
 import unittest
 from models.amenity import Amenity
-# import pep8
+import pep8
 
 
 class Test_Amenity(unittest.TestCase):
@@ -14,13 +14,12 @@ class Test_Amenity(unittest.TestCase):
         amenity = Amenity()
         self.assertTrue(hasattr(amenity, "name"))
 
-    """def test_pep8(self):
-        pep8
+    def test_pep8(self):
+        """pep8"""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base_model.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
-    """
 
     def test_2(self):
         """test type"""
