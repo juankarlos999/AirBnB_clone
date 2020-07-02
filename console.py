@@ -184,8 +184,6 @@ class HBNBCommand(cmd.Cmd):
                 all_objs[find_id].save()
                 break
 
-    #def precmd(self, line):
-
     def do_count(self, name_class):
         """
         Usage: count <class name> or <class name>.count()
