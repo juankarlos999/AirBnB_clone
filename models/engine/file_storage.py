@@ -63,7 +63,6 @@ class FileStorage:
                 from models.user import User
 
                 obj_load = json.load(load_file)
-                obj_class =[BaseModel]
                 for key, value in obj_load.items():
                     obj = eval(value["__class__"] + "(**value)")
                     # obj = obj_class[0](**value)
