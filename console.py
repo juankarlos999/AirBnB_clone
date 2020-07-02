@@ -184,11 +184,7 @@ class HBNBCommand(cmd.Cmd):
                 all_objs[find_id].save()
                 break
 
-    def precmd(self, line):
-        """
-        Function that cath line for edit command
-        """
-        pass
+    #def precmd(self, line):
 
     def do_count(self, name_class):
         """
