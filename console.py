@@ -58,8 +58,9 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
             return
 
-        obj_base = eval(name_class + '()')
-        obj_base.save()
+        new_obj = eval(name_class + '()')
+        new_obj.save()
+        print(new_obj.id)
 
     def do_show(self, class_and_id):
         """
