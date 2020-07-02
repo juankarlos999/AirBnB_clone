@@ -80,6 +80,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(validator_str) < 2:
             print("** instance id missing **")
+            return
 
         all_objs = storage.all()
         for obj_id in all_objs:
