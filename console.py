@@ -179,6 +179,7 @@ class HBNBCommand(cmd.Cmd):
                 break
         else:
             print("** no instance found **")
+            return
 
         for find_id in all_objs:
             _id = find_id.split('.')
