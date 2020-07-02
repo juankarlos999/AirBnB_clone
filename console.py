@@ -90,6 +90,7 @@ class HBNBCommand(cmd.Cmd):
                 break
         else:
             print("** no instance found **")
+            return
 
     def do_destroy(self, class_del_id):
         """
@@ -121,6 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 break
         else:
             print("** no instance found **")
+            return
 
     def do_all(self, optional_nameClass):
         """
