@@ -18,7 +18,7 @@ class HBNBCommand(cmd.Cmd):
     """
     program that contains the entry point of the command interpreter
     """
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
 
     def do_quit(self, line):
         """ Quit command to exit the program"""
@@ -201,7 +201,7 @@ class HBNBCommand(cmd.Cmd):
                 eval(arguments[0])
             except:
                 print("** class doesn't exist **")
-                return None
+                return
 
         all_objs = storage.all()
         count = 0

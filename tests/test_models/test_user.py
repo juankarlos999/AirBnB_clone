@@ -2,7 +2,7 @@
 """Tests User"""
 import unittest
 from models.user import User
-# import pep8
+import pep8
 
 
 class Test_User(unittest.TestCase):
@@ -29,13 +29,12 @@ class Test_User(unittest.TestCase):
         # self.assertEqual(type(user.first_name), str)
         self.assertEqual(type(user.last_name), str)
 
-    """def test_pep8(self):
-        pep8
+    def test_pep8(self):
+        """pep8"""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base_model.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
-    """
 
 if __name__ == '__main__':
     unittest.main()

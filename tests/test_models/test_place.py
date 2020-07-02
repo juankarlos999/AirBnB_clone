@@ -2,7 +2,7 @@
 """Tests Place"""
 import unittest
 from models.place import Place
-# import pep8
+import pep8
 
 
 class Test_Place(unittest.TestCase):
@@ -47,13 +47,12 @@ class Test_Place(unittest.TestCase):
         place = Place()
         self.assertIsInstance(place, Place)
 
-    """def test_pep8(self):
-        pep8
+    def test_pep8(self):
+        """pep8"""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base_model.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
-    """
 
 if __name__ == '__main__':
     unittest.main()

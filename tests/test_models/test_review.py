@@ -2,7 +2,7 @@
 """Tests Review"""
 import unittest
 from models.review import Review
-# import pep8
+import pep8
 
 
 class Test_Review(unittest.TestCase):
@@ -26,13 +26,12 @@ class Test_Review(unittest.TestCase):
         self.assertEqual(type(review.user_id), str)
         self.assertEqual(type(review.text), str)
 
-    """def test_pep8(self):
-        pep8
+    def test_pep8(self):
+        """pep8"""
         pep8style = pep8.StyleGuide(quiet=True)
         result = pep8style.check_files(['models/base_model.py'])
         self.assertEqual(result.total_errors, 0,
                          "Found code style errors (and warnings).")
-    """
 
 if __name__ == '__main__':
     unittest.main()

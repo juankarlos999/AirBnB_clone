@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-
-""" Module of Base for AirBnB clone project
+"""
+Module of Base for AirBnB clone project
 """
 from datetime import datetime
 from uuid import uuid4

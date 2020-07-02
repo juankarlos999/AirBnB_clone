@@ -43,6 +43,7 @@ class FileStorage:
         new_obj = {}
         for key, value in FileStorage.__objects.items():
             new_obj[key] = value.to_dict()
+
         with open(self.__file_path, 'w', encoding='utf-8') as file_save:
             json.dump(new_obj, file_save)
 
@@ -60,9 +61,11 @@ class FileStorage:
                 from models.review import Review
                 from models.state import State
                 from models.user import User
+
                 obj_load = json.load(load_file)
                 for key, value in obj_load.items():
                     obj = eval(value["__class__"] + "(**value)")
+                    # obj = obj_class[0](**value)
                     FileStorage.__objects[key] = obj
         except:
             pass

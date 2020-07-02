@@ -1,11 +1,14 @@
 #!/usr/bin/python3
-"""Class pace"""
+"""
+Class pace
+"""
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """Class place with public attribute"""
-
+    """
+    Class place with public attribute
+    """
     city_id = ''
     user_id = ''
     name = ''
