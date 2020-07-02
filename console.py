@@ -52,12 +52,14 @@ class HBNBCommand(cmd.Cmd):
         if not name_class:
             print("** class name missing **")
             return
-        if name_class == 'BaseModel':
-            obj_base = BaseModel()
-            obj_base.save()
-            print(obj_base.id)
-        else:
+        try:
+            eval(name_class)
+        except:
             print("** class doesn't exist **")
+            return
+
+        obj_base = eval(name_class + '()')
+        obj_base.save()
 
     def do_show(self, class_and_id):
         """
@@ -125,6 +127,7 @@ class HBNBCommand(cmd.Cmd):
         * If the class name doesn’t exist, print ** class doesn't exist **
         (ex: $ all MyModel)
         """
+        print(self)
         objects_list = []
         _object = ""
         if optional_nameClass:
@@ -180,6 +183,37 @@ class HBNBCommand(cmd.Cmd):
                 setattr(all_objs[find_id], validator_str[2], validator_str[3])
                 all_objs[find_id].save()
                 break
+
+    def precmd(self, line):
+        """
+        Function that cath line for edit command
+        """
+        pass
+
+    def do_count(self, name_class):
+        """
+        Usage: count <class name> or <class name>.count()
+        """
+        arguments = name_class.split()
+
+        if arguments:
+            try:
+                eval(arguments[0])
+            except:
+                print("** class doesn't exist **")
+                return None
+
+        all_objs = storage.all()
+        count = 0
+
+        for key, value in all_objs.items():
+            if not arguments:
+                count += 1
+            else:
+                check = key.split('.')
+                if arguments[0] == check[0]:
+                    count += 1
+        print(count)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
