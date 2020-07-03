@@ -23,7 +23,7 @@ class BaseModel:
                 continue
 
             if key in "created_at" or key in "updated_at":
-                value = datetime.now()
+                value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
 
             if key not in "__class__":
                 setattr(self, key, value)
