@@ -30,6 +30,10 @@ class Test_Base(unittest.TestCase):
         """Test save"""
         pass
 
+    def test_to_dict(self):
+        """Test to_dict"""
+        self.assertTrue(type(self.basemodel.to_dict),type({}))
+
     def test_val(self):
         """attributes"""
         self.baseModel.name = "Holberton"

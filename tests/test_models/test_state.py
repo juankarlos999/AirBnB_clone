@@ -11,7 +11,7 @@ class Test_State(unittest.TestCase):
     def test_1(self):
         """Test attr"""
         state = State
-        self.assertTrue(hasattr(State, "name"))
+        self.assertTrue(hasattr(state, "name"))
 
     def test_doc(self):
         """Test docs"""

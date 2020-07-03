@@ -52,12 +52,15 @@ class HBNBCommand(cmd.Cmd):
         if not name_class:
             print("** class name missing **")
             return
-        if name_class == 'BaseModel':
-            obj_base = BaseModel()
-            obj_base.save()
-            print(obj_base.id)
-        else:
+        try:
+            eval(name_class)
+        except:
             print("** class doesn't exist **")
+            return
+
+        new_obj = eval(name_class + '()')
+        new_obj.save()
+        print(new_obj.id)
 
     def do_show(self, class_and_id):
         """
@@ -77,6 +80,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(validator_str) < 2:
             print("** instance id missing **")
+            return
 
         all_objs = storage.all()
         for obj_id in all_objs:
@@ -86,6 +90,7 @@ class HBNBCommand(cmd.Cmd):
                 break
         else:
             print("** no instance found **")
+            return
 
     def do_destroy(self, class_del_id):
         """
@@ -106,6 +111,7 @@ class HBNBCommand(cmd.Cmd):
 
         if len(validator_str) < 2:
             print("** instance id missing **")
+            return
 
         all_objs = storage.all()
         for obj_id in all_objs:
@@ -116,6 +122,7 @@ class HBNBCommand(cmd.Cmd):
                 break
         else:
             print("** no instance found **")
+            return
 
     def do_all(self, optional_nameClass):
         """
@@ -125,6 +132,7 @@ class HBNBCommand(cmd.Cmd):
         * If the class name doesn’t exist, print ** class doesn't exist **
         (ex: $ all MyModel)
         """
+        print(self)
         objects_list = []
         _object = ""
         if optional_nameClass:
@@ -173,6 +181,7 @@ class HBNBCommand(cmd.Cmd):
                 break
         else:
             print("** no instance found **")
+            return
 
         for find_id in all_objs:
             _id = find_id.split('.')
@@ -191,8 +200,8 @@ class HBNBCommand(cmd.Cmd):
             try:
                 eval(arguments[0])
             except:
-                print("* class doesn't exist *")
-                return None
+                print("** class doesn't exist **")
+                return
 
         all_objs = storage.all()
         count = 0

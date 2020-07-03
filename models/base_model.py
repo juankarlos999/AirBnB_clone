@@ -13,18 +13,20 @@ class BaseModel:
     for other classes
     """
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, **kwargs):
         """
-        Instantiation method or constructor with *args and **kwargs
+        Method constructor with **kwargs
         """
         for key, value in kwargs.items():
+
             if key == "__class__":
                 continue
 
-            if (key == "created_at" or key == "updated_at"):
-                value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+            if key in "created_at" or key in "updated_at":
+                value = datetime.now()
 
-            setattr(self, key, value)
+            if key not in "__class__":
+                setattr(self, key, value)
 
         if "id" not in kwargs.keys():
             self.id = str(uuid4())
