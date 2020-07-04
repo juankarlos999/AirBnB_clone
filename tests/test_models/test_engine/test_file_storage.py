@@ -19,7 +19,7 @@ class test_FileStorage(unittest.TestCase):
 
     def test_objects(self):
         """tests __objects"""
-        pass
+        __objects = []
 
 
     def test_pep8(self):
