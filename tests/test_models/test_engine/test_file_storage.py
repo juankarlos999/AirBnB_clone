@@ -5,7 +5,9 @@ Test FileStorage
 import unittest
 from models.base_model import BaseModel
 from models import storage
+from models.engine.file_storage import FileStorage
 import pep8
+
 
 class test_FileStorage(unittest.TestCase):
     """Test file storage"""
@@ -17,10 +19,22 @@ class test_FileStorage(unittest.TestCase):
         new_object = storage.all()
         self.assertEqual(dict, type(new_object))
 
-    def test_objects(self):
-        """tests __objects"""
-        __objects = []
+    """def test_objects(self):
+        tests __objects
+        FileStore.__FileStorage__objects = {}
+    """
 
+    def test_reload(self):
+        """Tests reload"""
+        self.assertEqual(list, type(FileStorage.__objects))
+
+    def test_reload(self):
+        """Tests reload"""
+        pass
+
+    def test_save(self, obj=None):
+        """Tests reload"""
+        pass
 
     def test_pep8(self):
         """pep8"""
