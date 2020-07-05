@@ -32,7 +32,7 @@ class Test_User(unittest.TestCase):
         user = User()
         self.assertEqual(type(user.email), str)
         self.assertEqual(type(user.password), str)
-        # self.assertEqual(type(User.first_name), str)
+        self.assertEqual(str, type(User.first_name))
         self.assertEqual(type(user.last_name), str)
 
     def test_pep8(self):
