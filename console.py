@@ -4,6 +4,7 @@ Console or simple framework for writing line-oriented command interpreters
 """
 import cmd
 import sys
+import models
 from models.state import State
 from models.city import City
 from models.amenity import Amenity
@@ -33,11 +34,7 @@ class HBNBCommand(cmd.Cmd):
         """
         Called when an empty line is entered in response to the prompt. If this
         method is not overridden, it repeats the last nonempty comman entered.
-        cmd execute precmd, onecmd and postcmd methods sequentially. onecmd is
-        the main one which exetues the given line.
-        This method check the line, if line is empty it calls the emptyline
-        method and it returns the last command which is a global variable
-        called as 'lastcmd'. The method emptyline(), override the variable
+        The method emptyline(), override the variable
         'lastcmd' asigning double quotes.
         """
         if self.lastcmd:
@@ -132,7 +129,7 @@ class HBNBCommand(cmd.Cmd):
         * If the class name doesn’t exist, print ** class doesn't exist **
         (ex: $ all MyModel)
         """
-        print(self)
+        # print(self)
         objects_list = []
         _object = ""
         if optional_nameClass:
