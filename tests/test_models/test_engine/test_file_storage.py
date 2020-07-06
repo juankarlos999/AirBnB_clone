@@ -19,21 +19,30 @@ class test_FileStorage(unittest.TestCase):
         new_object = storage.all()
         self.assertEqual(dict, type(new_object))
 
-    """def test_objects(self):
-        tests __objects
-        FileStore.__FileStorage__objects = {}
-    """
+    def test_objects(self):
+        """tests __objects"""
+        obj = storage.all()
+        self.assertNotEqual(type(obj), type([]))
 
     def test_reload(self):
         """Tests reload"""
-        self.assertEqual(list, type(FileStorage.__objects))
+        new_object = storage.all()
+        self.assertEqual(type(new_object), type({}))
 
-    def test_reload(self):
+    def test_new(self):
+        """Test new"""
+        new_ = FileStorage()
+        var_ = BaseModel()
+        new_.new(var_)
+        key_ = var_.to_dict()['__class__'] + '.' + var_.id
+        self.assertTrue(new_.all()[key_].id, var_.id)
+
+    def reload(self):
         """Tests reload"""
         pass
 
-    def test_save(self, obj=None):
-        """Tests reload"""
+    def save(self):
+        """Tests save"""
         pass
 
     def test_pep8(self):
