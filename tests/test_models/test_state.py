@@ -25,7 +25,7 @@ class Test_State(unittest.TestCase):
     def test_3(self):
         """Test type"""
         state = State()
-        self.asserEqual(type(state.name), str)
+        self.assertEqual(type(state.name), str)
 
     def test_pep8(self):
         """pep8"""

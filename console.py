@@ -69,6 +69,7 @@ class HBNBCommand(cmd.Cmd):
             return
 
         validator_str = class_and_id.split()
+        print(validator_str, class_and_id)
         try:
             eval(validator_str[0])
         except:

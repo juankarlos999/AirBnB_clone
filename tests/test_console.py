@@ -20,6 +20,27 @@ class Test_Console(unittest.TestCase):
     Tests console
     """
 
+    def setUp(self):
+        """ setup"""
+        self.hbnbCommand = HBNBCommand()
+        self.hbnbCommand2 = BaseModel()
+
+    def test_create(self):
+        """test create"""
+        self.hbnbCommand.do_create(self.hbnbCommand2.to_dict()['__class__'])
+
+    def test_show(self):
+        """test show"""
+        cls = self.hbnbCommand2.to_dict()['__class__']
+        _id = self.hbnbCommand2.id
+        self.hbnbCommand.do_show(cls+' '+_id)
+
+    def test_destroy(self):
+        """test destrooy"""
+        cls = self.hbnbCommand2.to_dict()['__class__']
+        _id = self.hbnbCommand2.id
+        self.hbnbCommand.do_destroy(cls+' '+_id)
+
     def test_pep8(self):
         """
         Pep8
