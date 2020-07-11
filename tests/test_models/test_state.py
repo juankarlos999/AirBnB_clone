@@ -10,18 +10,22 @@ class Test_State(unittest.TestCase):
 
     def test_1(self):
         """Test attr"""
-        state = State
-        self.assertTrue(hasattr(State, "name"))
+        state = State()
+        self.assertTrue(hasattr(state, "name"))
 
     def test_doc(self):
         """Test docs"""
         self.assertIsNotNone(State.__doc__)
 
-    """def test_2(self):
-        Test isinstance
-        state = State
+    def test_2(self):
+        """Test isinstance"""
+        state = State()
         self.assertIsInstance(state, State)
-    """
+
+    def test_3(self):
+        """Test type"""
+        state = State()
+        self.assertEqual(type(state.name), str)
 
     def test_pep8(self):
         """pep8"""

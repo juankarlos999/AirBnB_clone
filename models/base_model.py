@@ -18,8 +18,13 @@ class BaseModel:
         Method constructor with **kwargs
         """
         for key, value in kwargs.items():
+
+            if key == "__class__":
+                continue
+
             if key in "created_at" or key in "updated_at":
-                value = datetime.strptime(value, "%Y-%m-%dT%H:%M:%S.%f")
+                value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
+
             if key not in "__class__":
                 setattr(self, key, value)
 

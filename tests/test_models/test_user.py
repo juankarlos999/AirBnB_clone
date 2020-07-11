@@ -21,12 +21,18 @@ class Test_User(unittest.TestCase):
         user = User()
         self.assertIsNotNone(User.__doc__)
 
+    def test_isInstance(self):
+        """Test isinstance"""
+        user = User()
+        self.assertIsInstance(user, User)
+
+
     def test_2(self):
         """Test type"""
         user = User()
         self.assertEqual(type(user.email), str)
         self.assertEqual(type(user.password), str)
-        # self.assertEqual(type(user.first_name), str)
+        self.assertEqual(str, type(User.first_name))
         self.assertEqual(type(user.last_name), str)
 
     def test_pep8(self):
